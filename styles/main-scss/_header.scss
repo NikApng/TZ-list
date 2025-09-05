@@ -1,0 +1,112 @@
+@use '../normalize';
+
+@keyframes gradient-move {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.header{
+    background: linear-gradient(90deg, #a259d9, #6c2eb7, #a259d9);
+    background-size: 200% 200%;
+    animation: gradient-move 10s linear infinite;
+    width: 100%;
+    height: 10rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    border-radius: 0 0 1rem 1rem;
+    & .header__navigation{
+        margin: 1rem;
+    }
+    & article {
+    margin-left: auto;
+    }
+}
+
+.theme-toggle{
+    background-color: azure;
+    border: none;
+    border-radius: 1rem;
+    margin: 1rem;
+}
+
+.btn--head {
+    border: none;
+    background-color: transparent;
+    width: 5rem;
+    height: 5rem;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border 0.2s, box-shadow 0.2s, transform 0.1s;
+
+    &:hover {
+        border: 1px dashed rgb(23, 23, 23);
+        border-radius: 1rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
+
+    &.btn--head-active {
+        border: 2px solid #a259d9;
+        border-radius: 1rem;
+        box-shadow: 0 4px 16px rgba(162, 89, 217, 0.15);
+        
+    }
+
+    & svg {
+        color: #6c2eb7;
+        width:4rem;
+        height: 4rem;
+        pointer-events: none;
+    }
+}
+
+.header__navigation {
+    position: relative;
+}
+
+.menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 160px;
+    background: #f5dcf3;
+    border-radius: 1rem;
+    box-shadow: 0 4px 16px rgba(162, 89, 217, 0.15);
+    padding: 1rem 0.5rem;
+    z-index: 10;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.2s, transform 0.2s;
+    pointer-events: auto;
+    display: block; // всегда block!
+}
+.menu li {
+    margin: 1rem;
+    text-align: center;
+    a{
+        text-decoration: none;
+        color: #282828;
+        &:hover{
+            border: 1px black dashed;
+            border-radius: 1rem;
+        }
+    }
+}
+
+.menu.hidden {
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+}

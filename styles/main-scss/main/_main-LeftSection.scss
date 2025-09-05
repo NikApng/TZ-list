@@ -1,0 +1,49 @@
+.main--content-right{
+    width: 100vw;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.main--content-left{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    width: 20vw;
+    min-width: 10vw;
+    min-height: 100%;
+    flex-wrap: wrap;
+}
+
+.left__section-main--container{
+    display: flex;
+    flex-direction: column;
+
+    background: linear-gradient(90deg, #a259d9, #6c2eb7, #a259d9);
+    background-size: 200% 200%;
+    animation: gradient-move 10s linear infinite;
+    justify-content: start;
+    align-items: center;
+    flex: 1;
+    border-radius: 1rem 1rem 1rem 1rem;
+    margin-left: 1%;
+    width: 100%;
+    & .left__section-middle{
+        flex: 1;
+        align-self: start;
+        margin-left: 2%;
+        display: flex;
+        flex-direction: column;
+        gap: 5%;
+    }
+}
