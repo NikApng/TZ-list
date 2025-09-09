@@ -1,135 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./index.css">
     <script src="../js/burger/burger-menu.js" defer type="module"></script>
-    <script src="../js/modal-main/modal.js" defer type="module"></script>
+    <script src="../main-js/js-adder-TZ.js" defer type="module"></script>
     <title>TZ | Задачи</title>
 </head>
+
 <body>
     <header class="header">
-
         <nav class="header__navigation btn--head">
             <button class="btn--head btn--head-active" type="button">
-
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <rect y="4" width="24" height="2" rx="1" fill="currentColor"/>
-                    <rect y="11" width="24" height="2" rx="1" fill="currentColor"/>
-                    <rect y="18" width="24" height="2" rx="1" fill="currentColor"/>
+                    <rect y="4" width="24" height="2" rx="1" fill="currentColor" />
+                    <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
+                    <rect y="18" width="24" height="2" rx="1" fill="currentColor" />
                 </svg>
-
             </button>
-            <ul class="menu hidden" title="menu" >
+            <ul class="menu hidden" title="menu">
                 <li><a href="#" class="btn--header">Главное меню</a></li>
                 <li><a href="#" class="btn--header">Настройки</a></li>
-                <li><a href="#" class="btn--header">обратная связь</a></li>
+                <li><a href="#" class="btn--header">Обратная связь</a></li>
             </ul>
         </nav>
 
         <a href="#" class="header__logo" aria-label="Лого">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                <circle cx="16" cy="16" r="14" fill="#fff" stroke="black" stroke-width="5"/>
-                <text x="16" y="21" text-anchor="middle" font-size="14" fill="black" font-family="Arial" font-weight="bold">TZ</text>
+                <circle cx="16" cy="16" r="14" fill="#fff" stroke="black" stroke-width="5" />
+                <text x="16" y="21" text-anchor="middle" font-size="14" fill="black" font-family="Arial"
+                    font-weight="bold">TZ</text>
             </svg>
         </a>
 
         <button class="theme-toggle" aria-label="Сменить тему">Сменить тему</button>
     </header>
+
     <!-- main -->
     <main class="main--content">
-<div class="main--content-head">
+        <div class="main--content-head">
+            <aside class="main-info">
+                <div class="main-info__head">
+                    <nav class="main-info__left">
+                        <input type="search" placeholder="искать" class="main-info__search">
 
-    <aside class="main-info">
 
-        <div class="main-info__head">
+                        <div class="main-info__right">
+                            <a href="#" class="main-info__search-icon">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <circle cx="9" cy="9" r="7" stroke="#6c2eb7" stroke-width="2" />
+                                    <line x1="15" y1="15" x2="11.5" y2="11.5" stroke="#6c2eb7" stroke-width="2"
+                                        stroke-linecap="round" />
+                                </svg>
+                            </a>
+                        </div>
+                    </nav>
 
-            <nav class="main-info__left">
-                <input type="search" placeholder="искать" class="main-info__search">
-            </nav>
-
-            <div class="main-info__right">
-                <a href="#" class="main-info__search-icon">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                        <circle cx="9" cy="9" r="7" stroke="#6c2eb7" stroke-width="2"/>
-                        <line x1="15" y1="15" x2="11.5" y2="11.5" stroke="#6c2eb7" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                </a>
-            </div>
-            <div class="main-info__bottom">
-                <input type="text">
-                <button class="btn-main__creater"></button>
-            </div>
-
+                    <div class="main-info__bottom">
+                        <div class="inpit-placeholder-top">
+                            <input type="text" id="tascInput" required class="main-info__input" data-name-input>
+                            <label for="tascInput">Название задачи</label>
+                        </div>
+                        <button class="btn-main__creater" data-create-btn></button>
+                    </div>
+                </div>
+            </aside>
+            <div class="aside-false"></div>
         </div>
 
-        </aside>
+        <!-- Колонка с задачами -->
+        <div class="main--content-main">
+            <section class="main--content-left">
+                <div class="left__section-main--container">
+                    <div class="left__section-header">
+                        <h2>Задачи</h2>
+                    </div>
+                    <div class="left__section-middle">
+                        <ul class="task-list" id="taskList" aria-live="polite">
+                            <template id="taskTemplate">
+                                <li class="task">
+                                    <span class="task__title"></span>
+                                    <button class="task__edit" type="button" aria-label="Редактировать" data-edit-btn>✏️</button>
+                                    <button class="task__delete" type="button" aria-label="Удалить" data-delete-btn>🗑️</button>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                </div>
+            </section>
 
-    </div>
-
-    <!--  -->
-    <div class="main--content-main">  
-
-
-
-<section class="main--content-left">
-    <div class="left__section-main--container">
-  <div class="left__section-header">
-    <h2>Задачи</h2>
-  </div>
-<div class="left__section-middle">
-  <ul class="task-list" id="taskList" aria-live="polite">
-    <!-- Один элемент -->
-    <li class="task" data-id="t1">
-      <span class="task__title">Найти носок</span>
-      <input type="checkbox">
-      <button class="task__delete" type="button" aria-label="Удалить Задача 1" data-action="delete">
-        <!-- можно и текстом: × -->
-        <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </button>
-    </li>
-
-    <!-- Пример ещё одной -->
-    <li class="task" data-id="t2">
-      <span class="task__title">Найти второй носок</span>
-      <input type="checkbox">
-      <button class="task__delete" type="button" aria-label="Удалить Задача 2" data-action="delete">
-        <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </button>
-    </li>
-  </ul>
-
-
-  <!-- Шаблон для клонирования (удобно в JS) -->
-  <template id="taskTemplate">
-    <li class="task" data-id="">
-      <span class="task__title"></span>
-      <button class="task__delete" type="button" aria-label="Удалить" data-action="delete">
-        <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </button>
-    </li>
-  </template>
-  </div>
-  </div>
-</section>
-
-        <!--  -->
-        <div class="main--content-right">
-            <!--  -->
-            <h1 class="">затычкa</h1>
-
-            <!--  -->
+            <!-- Правая часть -->
+            <div class="main--content-right">
+                <!-- сюда можно выводить инфо, ошибки и т.д. -->
+            </div>
         </div>
-    <!--  -->
-    </div>
     </main>
-    <!-- main -->
 </body>
+
 </html>

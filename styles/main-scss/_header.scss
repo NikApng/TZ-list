@@ -10,7 +10,7 @@
 }
 
 .header{
-    background: linear-gradient(90deg, #a259d9, #6c2eb7, #a259d9);
+    background: linear-gradient(90deg, #1c1c1c, #3e3e3e, #212021) repeat repeat ;
     background-size: 200% 200%;
     animation: gradient-move 10s linear infinite;
     width: 100%;
@@ -58,16 +58,16 @@
     }
 
     &.btn--head-active {
-        border: 2px solid #a259d9;
+        border: 2px solid #eae9ec;
         border-radius: 1rem;
         box-shadow: 0 4px 16px rgba(162, 89, 217, 0.15);
         
     }
 
     & svg {
-        color: #6c2eb7;
-        width:4rem;
-        height: 4rem;
+        color: #c1c1c1;
+        width:2rem;
+        height: 2rem;
         pointer-events: none;
     }
 }
@@ -80,17 +80,18 @@
     position: absolute;
     top: 100%;
     left: 0;
-    min-width: 160px;
-    background: #f5dcf3;
+    width: 10rem;
+    background: #747474;
     border-radius: 1rem;
-    box-shadow: 0 4px 16px rgba(162, 89, 217, 0.15);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1),
+            0 1px 3px rgba(0, 0, 0, 0.08);
     padding: 1rem 0.5rem;
     z-index: 10;
     opacity: 1;
     transform: translateY(0);
     transition: opacity 0.2s, transform 0.2s;
     pointer-events: auto;
-    display: block; // всегда block!
+    display: block;
 }
 .menu li {
     margin: 1rem;

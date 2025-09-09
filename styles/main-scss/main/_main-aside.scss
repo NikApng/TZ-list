@@ -1,9 +1,11 @@
-.main-info{
-    margin-top: 2rem;
-    background: linear-gradient(90deg, #a259d9, #6c2eb7, #a259d9);
+.main-info {
+    margin: 1rem 1rem;
+    background: linear-gradient(90deg, #1c1c1c, #3e3e3e, #212021) repeat repeat ;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1),
+        0 1px 3px rgba(0, 0, 0, 0.08);
     background-size: 200% 200%;
     animation: gradient-move 10s linear infinite;
-    width: 50%;
+    width: 50vw;
     height: 6rem;
     border-radius: 1rem;
     display: flex;
@@ -12,51 +14,86 @@
     align-items: center;
     justify-content: center;
     flex: 1;
+    padding: 10px;
 
 
-    & .main-info__search{
+
+    & .main-info__search {
         background-color: rgb(139, 46, 221);
         border: 1px dashed gray;
         margin-right: 2rem;
         border-radius: 1rem;
         width: 100%;
         outline: none;
-        &::placeholder{
+
+        &::placeholder {
             padding: 10px;
             color: white;
         }
-        
+
     }
-    & .main-info__right{
+
+    & .main-info__right {
         margin-left: 20px;
         align-self: center;
-        
+
     }
-    & .main-info__bottom{
-        
-        & input{
-            background-color: #ffffff;
-            border: none;
-            border-radius: 10px;
-            margin-right: 10px;
+
+    & .main-info__bottom {
+        display: flex;
+        flex-wrap: wrap;
+
+        & .inpit-placeholder-top {
+            position: relative;
+
+            & input {
+
+                background-color: #ffffff;
+                border: none;
+                border-radius: 10px;
+                margin-right: 20px;
+            }
+
+            & label {
+                position: absolute;
+                top: -10px;
+                left: 10px;
+                transform: translateY(-50%);
+
+                padding: 0 5px;
+                font-size: 12px;
+                color: gray;
+
+                transition: all 0.2s ease-out;
+            }
+
+            & input:focus+label,
+            & input:not(:placeholder-shown)+label {
+                top: -8px;
+                font-size: 12px;
+                color: rgb(133, 119, 119);
+                padding: 0 5px;
+            }
 
         }
+
+
         & button {
             background-color: #000000;
             color: white;
-            font-weight:400;
-            
+            font-weight: 400;
+            text-align: center;
+            align-self: center;
             border: none;
             border-radius: 10px;
 
-                &::before {
-                    content: '+';
-                    font-size: 20px;
-                    line-height: 1;
-                }
+            &::before {
+                content: 'Добавить задачу';
+                font-size: 20px;
+                line-height: 1;
+            }
 
         }
     }
-    
-}
 
+}

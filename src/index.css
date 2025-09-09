@@ -210,7 +210,7 @@ body {
   }
 }
 .header {
-  background: linear-gradient(90deg, #a259d9, #6c2eb7, #a259d9);
+  background: linear-gradient(90deg, #1c1c1c, #3e3e3e, #212021) repeat repeat;
   background-size: 200% 200%;
   animation: gradient-move 10s linear infinite;
   width: 100%;
@@ -256,14 +256,14 @@ body {
   transform: scale(0.95);
 }
 .btn--head.btn--head-active {
-  border: 2px solid #a259d9;
+  border: 2px solid #eae9ec;
   border-radius: 1rem;
   box-shadow: 0 4px 16px rgba(162, 89, 217, 0.15);
 }
 .btn--head svg {
-  color: #6c2eb7;
-  width: 4rem;
-  height: 4rem;
+  color: #c1c1c1;
+  width: 2rem;
+  height: 2rem;
   pointer-events: none;
 }
 
@@ -275,10 +275,10 @@ body {
   position: absolute;
   top: 100%;
   left: 0;
-  min-width: 160px;
-  background: #f5dcf3;
+  width: 10rem;
+  background: #747474;
   border-radius: 1rem;
-  box-shadow: 0 4px 16px rgba(162, 89, 217, 0.15);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
   padding: 1rem 0.5rem;
   z-index: 10;
   opacity: 1;
@@ -308,11 +308,12 @@ body {
 }
 
 .main-info {
-  margin-top: 2rem;
-  background: linear-gradient(90deg, #a259d9, #6c2eb7, #a259d9);
+  margin: 1rem 1rem;
+  background: linear-gradient(90deg, #1c1c1c, #3e3e3e, #212021) repeat repeat;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
   background-size: 200% 200%;
   animation: gradient-move 10s linear infinite;
-  width: 50%;
+  width: 50vw;
   height: 6rem;
   border-radius: 1rem;
   display: flex;
@@ -321,6 +322,7 @@ body {
   align-items: center;
   justify-content: center;
   flex: 1;
+  padding: 10px;
 }
 .main-info .main-info__search {
   background-color: rgb(139, 46, 221);
@@ -342,25 +344,57 @@ body {
   margin-left: 20px;
   align-self: center;
 }
-.main-info .main-info__bottom input {
+.main-info .main-info__bottom {
+  display: flex;
+  flex-wrap: wrap;
+}
+.main-info .main-info__bottom .inpit-placeholder-top {
+  position: relative;
+}
+.main-info .main-info__bottom .inpit-placeholder-top input {
   background-color: #ffffff;
   border: none;
   border-radius: 10px;
-  margin-right: 10px;
+  margin-right: 20px;
+}
+.main-info .main-info__bottom .inpit-placeholder-top label {
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  transform: translateY(-50%);
+  padding: 0 5px;
+  font-size: 12px;
+  color: gray;
+  transition: all 0.2s ease-out;
+}
+.main-info .main-info__bottom .inpit-placeholder-top input:not(:-moz-placeholder) + label {
+  top: -8px;
+  font-size: 12px;
+  color: rgb(133, 119, 119);
+  padding: 0 5px;
+}
+.main-info .main-info__bottom .inpit-placeholder-top input:focus + label, .main-info .main-info__bottom .inpit-placeholder-top input:not(:placeholder-shown) + label {
+  top: -8px;
+  font-size: 12px;
+  color: rgb(133, 119, 119);
+  padding: 0 5px;
 }
 .main-info .main-info__bottom button {
   background-color: #000000;
   color: white;
   font-weight: 400;
+  text-align: center;
+  align-self: center;
   border: none;
   border-radius: 10px;
 }
 .main-info .main-info__bottom button::before {
-  content: "+";
+  content: "Добавить задачу";
   font-size: 20px;
   line-height: 1;
 }
 
+/* Контейнеры — ок */
 .main--content {
   display: grid;
   grid-template-rows: auto 1fr;
@@ -368,22 +402,29 @@ body {
   min-height: 100vh;
   overflow: hidden;
   max-width: 100%;
-  justify-items: center;
-}
-
-.main--content-head {
-  grid-row: 1;
-  grid-column: 1;
-  width: 80%;
-  justify-items: center;
+  justify-items: center; /* ок */
 }
 
 .main--content-main {
-  grid-row: 2;
-  grid-column: 1;
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 2rem;
+  grid-template-columns: 20rem 1fr; /* слева фикс, справа растяжка */
+  gap: 1rem;
+  align-items: start;
+}
+
+.main--content-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* центр по поперечной оси */
+  justify-content: center;
+  width: 100%;
+}
+
+.main--content-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* центр по поперечной оси */
+  justify-content: start;
 }
 
 .main--content-right {
@@ -393,32 +434,88 @@ body {
 .main--content-left {
   display: flex;
   flex-direction: column;
-  justify-content: start;
-  align-items: start;
+  justify-content: flex-start;
+  align-items: flex-start;
   width: 20vw;
   min-width: 10vw;
   min-height: 100%;
   flex-wrap: wrap;
+  color: white;
 }
 
 .left__section-main--container {
   display: flex;
   flex-direction: column;
-  background: linear-gradient(90deg, #a259d9, #6c2eb7, #a259d9);
+  background: linear-gradient(90deg, #1c1c1c, #3e3e3e, #212021) repeat repeat;
   background-size: 200% 200%;
   animation: gradient-move 10s linear infinite;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   flex: 1;
-  border-radius: 1rem 1rem 1rem 1rem;
+  border-radius: 1rem;
   margin-left: 1%;
   width: 100%;
 }
 .left__section-main--container .left__section-middle {
   flex: 1;
-  align-self: start;
+  align-self: stretch;
   margin-left: 2%;
   display: flex;
   flex-direction: column;
-  gap: 5%;
+  justify-content: flex-start;
+  gap: 12px;
+  color: whitesmoke;
+}
+.left__section-main--container .left__section-middle ul.task-list {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.left__section-main--container .left__section-middle ul.task-list li.task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.left__section-main--container .left__section-middle ul.task-list li.task .task__title {
+  flex: 1 1 auto;
+  min-width: 0;
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.left__section-main--container .left__section-middle ul.task-list li.task .task__delete {
+  flex: 0 0 auto;
+  margin-left: auto;
+  background-color: #474747;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 1rem;
+  padding: 4px 10px;
+  margin-right: 10px;
+}
+.left__section-main--container .left__section-middle ul.task-list li.task .task__delete:hover {
+  background-color: #ff4c4c;
+  color: #fff;
+}
+
+.error-bg {
+  background: rgb(149, 149, 149);
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  border-radius: 1rem;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  width: 60%;
+  height: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 10;
 }/*# sourceMappingURL=index.css.map */

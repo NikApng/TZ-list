@@ -1,49 +1,84 @@
-.main--content-right{
+.main--content-right {
     width: 100vw;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-.main--content-left{
+.main--content-left {
     display: flex;
     flex-direction: column;
-    justify-content: start;
-    align-items: start;
+    justify-content: flex-start;
+    align-items: flex-start;
     width: 20vw;
     min-width: 10vw;
     min-height: 100%;
     flex-wrap: wrap;
+    color: white;
 }
 
-.left__section-main--container{
+.left__section-main--container {
     display: flex;
     flex-direction: column;
 
-    background: linear-gradient(90deg, #a259d9, #6c2eb7, #a259d9);
+    background: linear-gradient(90deg, #1c1c1c, #3e3e3e, #212021) repeat repeat;
     background-size: 200% 200%;
     animation: gradient-move 10s linear infinite;
-    justify-content: start;
+
+    justify-content: flex-start;
     align-items: center;
     flex: 1;
-    border-radius: 1rem 1rem 1rem 1rem;
+
+    border-radius: 1rem;
     margin-left: 1%;
     width: 100%;
-    & .left__section-middle{
+
+    .left__section-middle {
         flex: 1;
-        align-self: start;
+        align-self: stretch;
         margin-left: 2%;
         display: flex;
         flex-direction: column;
-        gap: 5%;
+        justify-content: flex-start;
+        gap: 12px; // заменил проценты на пиксели для предсказуемости
+        color: whitesmoke;
+
+        ul.task-list {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+            li.task {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                gap: 8px;
+                margin-bottom: 10px;
+                
+
+                .task__title {
+                    flex: 1 1 auto;
+                    min-width: 0; // позволяет тексту ужиматься
+                    word-break: break-word; // перенос длинных слов
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                .task__delete {
+                    flex: 0 0 auto;
+                    margin-left: auto;
+                    background-color: #474747;
+                    border: none;
+                    color: white;
+                    cursor: pointer;
+                    border-radius: 1rem;
+                    padding: 4px 10px;
+                    margin-right: 10px;
+                    &:hover {
+                        background-color: #ff4c4c;
+                        color: #fff;
+                    }
+                }
+            }
+        }
     }
 }
