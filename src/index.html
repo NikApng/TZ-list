@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./index.css">
     <script src="../js/burger/burger-menu.js" defer type="module"></script>
-    <script src="../main-js/js-adder-TZ.js" defer type="module"></script>
+    <script src="../main-js/stogare.js" defer type="module"></script>
     <title>TZ | Задачи</title>
 </head>
 
@@ -78,14 +78,8 @@
                         <h2>Задачи</h2>
                     </div>
                     <div class="left__section-middle">
-                        <ul class="task-list" id="taskList" aria-live="polite">
-                            <template id="taskTemplate">
-                                <li class="task">
-                                    <span class="task__title"></span>
-                                    <button class="task__edit" type="button" aria-label="Редактировать" data-edit-btn>✏️</button>
-                                    <button class="task__delete" type="button" aria-label="Удалить" data-delete-btn>🗑️</button>
-                                </li>
-                            </template>
+                        <ul class="task-list" id="taskList" aria-live="polite" data-ul-list>
+
                         </ul>
                     </div>
                 </div>
