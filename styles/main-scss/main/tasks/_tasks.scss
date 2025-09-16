@@ -1,0 +1,36 @@
+        .task-list {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+            
+        }
+
+        .lefSide--taskaBtn {
+            background: none;
+            border: transparent 1px dashed;
+            padding: 10px;  
+            transition: transform 0.3s ease;
+            
+            &:hover{
+                border: wheat 1px dashed;
+                border-radius: 1rem;
+                
+                transform: scale(1.1);
+            }
+        }
+
+.lefSide--LI{
+    border-bottom: 2px dashed black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .lefSide--inputReady,
+    .lefSide--task{
+        margin: 30px;
+    }
+}
+

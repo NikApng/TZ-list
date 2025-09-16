@@ -3,6 +3,7 @@
 }
 
 .main--content-left {
+
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -12,6 +13,26 @@
     min-height: 100%;
     flex-wrap: wrap;
     color: white;
+
+    & .btn-main__creater{
+        background-color: #bbded6;
+        border: 1px transparent dashed;
+        border-radius: 5%;
+        &:hover{
+            border: 1px dashed #fbfbfe;
+            box-shadow: 0 0 10px #5555566b, 0 0 20px #5f606056;
+        }
+    }
+    & .btn-main__deleter-all{
+        background-color: #bbded6;
+        border: 2px transparent dashed;
+        border-radius: 0 10px 10px 0;  
+        &:hover{
+            
+            border: 2px solid #6868b3;
+            box-shadow: 0 0 10px #5555566b, 0 0 20px #5f606056;
+        }
+    }
 }
 
 .left__section-main--container {
@@ -40,45 +61,6 @@
         gap: 12px; // заменил проценты на пиксели для предсказуемости
         color: whitesmoke;
 
-        ul.task-list {
-            width: 100%;
-            margin: 0;
-            padding: 0;
-            list-style: none;
 
-            li.task {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                width: 100%;
-                gap: 8px;
-                margin-bottom: 10px;
-                
-
-                .task__title {
-                    flex: 1 1 auto;
-                    min-width: 0; // позволяет тексту ужиматься
-                    word-break: break-word; // перенос длинных слов
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                }
-
-                .task__delete {
-                    flex: 0 0 auto;
-                    margin-left: auto;
-                    background-color: #474747;
-                    border: none;
-                    color: white;
-                    cursor: pointer;
-                    border-radius: 1rem;
-                    padding: 4px 10px;
-                    margin-right: 10px;
-                    &:hover {
-                        background-color: #ff4c4c;
-                        color: #fff;
-                    }
-                }
-            }
-        }
     }
 }
