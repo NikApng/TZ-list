@@ -49,7 +49,7 @@
 
 
                         <div class="main-info__right">
-                            <button  class="main-info__search-icon">
+                            <button class="main-info__search-icon">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                                     <circle cx="9" cy="9" r="7" stroke="#6c2eb7" stroke-width="2" />
                                     <line x1="15" y1="15" x2="11.5" y2="11.5" stroke="#6c2eb7" stroke-width="2"
@@ -59,15 +59,7 @@
                         </div>
                     </nav>
 
-                    <div class="main-info__bottom">
-                        <div class="inpit-placeholder-top">
-                            <input type="text" id="tascInput" required class="main-info__input" data-name-input>
-                            <label for="tascInput">Название задачи</label>
-                            
-                        </div>
-                        <button class="btn-main__creater" data-create-btn></button>
-                        <button class="btn-main__deleter-all" data-delete-all-btn></button>
-                    </div>
+
                 </div>
             </aside>
             <div class="aside-false"></div>
@@ -79,6 +71,14 @@
                 <div class="left__section-main--container">
                     <div class="left__section-header">
                         <h2>Задачи</h2>
+
+                        <div class="main-info__bottom">
+
+                            <button class="btn-main__creater" data-create-btn>✚</button>
+                            <button class="btn-main__deleter-all" data-delete-all-btn>удалить всё</button>
+
+                        </div>
+
                     </div>
                     <div class="left__section-middle">
                         <ul class="task-list" id="taskList" aria-live="polite" data-ul-list>
@@ -89,7 +89,7 @@
             </section>
 
             <!-- Правая часть -->
-            <div class="main--content-right">
+            <div class="main--content-right" data-right-menu>
                 <!-- сюда можно выводить инфо, ошибки и т.д. -->
             </div>
         </div>
