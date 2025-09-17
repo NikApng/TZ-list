@@ -8,14 +8,14 @@ function getToLocalStorage(key) {
 }
 
 
-function RenderTodofromLocalStorage () {
+function RenderTodofromLocalStorage() {
   const listUL = document.querySelector('[data-ul-list]')
   if (!listUL) return
 
   listUL.innerHTML = ''
   let tasks = getToLocalStorage('listUL') || []
 
-  tasks.forEach((task) =>{
+  tasks.forEach((task) => {
     const taska = document.createElement('li')
     taska.classList.add('lefSide--LI')
 
@@ -26,17 +26,17 @@ function RenderTodofromLocalStorage () {
     const taskaText = document.createElement('span')
     taskaText.textContent = task.text
     taskaText.classList.add('lefSide--task')
-    
+
 
     const taskaDeleteBtn = document.createElement('button')
-taskaDeleteBtn.classList.add('lefSide--taskaBtn')
+    taskaDeleteBtn.classList.add('lefSide--taskaBtn')
 
     taskaDeleteBtn.textContent = '🗑️'
 
 
     const taskaEditBtn = document.createElement('button')
     taskaEditBtn.classList.add('lefSide--taskaBtn')
-    
+
 
     taskaEditBtn.textContent = '📝'
 
@@ -44,6 +44,7 @@ taskaDeleteBtn.classList.add('lefSide--taskaBtn')
     if (task.done === true) {
       taskaText.style.color = 'gray'
       taskaText.style.textDecoration = 'line-through'
+      taskaText.style.fontWeight = 'bold'
 
     } else {
       taskaText.style.color = 'white'
@@ -57,16 +58,6 @@ taskaDeleteBtn.classList.add('lefSide--taskaBtn')
     taska.appendChild(taskaText)
     taska.appendChild(taskaEditBtn)
     taska.appendChild(taskaDeleteBtn)
-    const btnDeleteAll = document.querySelector('[data-delete-all-btn]')
-
-
-
-    btnDeleteAll.addEventListener('click', () => {
-
-      localStorage.removeItem('listUL')
-
-      RenderTodofromLocalStorage()
-    })
 
     taskaDeleteBtn.addEventListener('click', (el) => {
 
@@ -97,7 +88,7 @@ taskaDeleteBtn.classList.add('lefSide--taskaBtn')
 
 
   })
-  
+
 }
 RenderTodofromLocalStorage()
 
@@ -106,9 +97,15 @@ RenderTodofromLocalStorage()
 
 
 
-document.addEventListener('click', (e)=>{
+document.addEventListener('click', (e) => {
+  if (e.target.closest('[data-create-btn]')) {
 
-  if(e.target.closest('[data-create-btn]')){
+    const MenuIsopen = document.querySelector('.Menu-adder__container')
+
+    if (MenuIsopen) {
+      return
+    }
+
     const listUL = document.querySelector('[data-ul-list]')
     const menuAdder = document.createElement('div')
 
@@ -127,48 +124,48 @@ document.addEventListener('click', (e)=>{
                                 <button class="Menu-add__task--btn" data-add-task-in-menu="${id}" type="button">✚</button>
                             </div>
                             
-                    </div>
-    `
+                    </div>`
+
+    if (menuAdder == true) {
+      const btn = document.querySelector('[data-create-btn]')
+      btn.remove()
+    }
     const input = menuAdder.querySelector(`[data-input-menu="${id}"]`)
     const addBtn = menuAdder.querySelector(`[data-add-task-in-menu="${id}"]`)
 
+    addBtn.addEventListener('click', () => {
+      const valueInp = input.value.trim()
+      const task = document.createElement('li')
 
-    addBtn.addEventListener('click', ()=>{
-    const valueInp = input.value.trim()
-    const task = document.createElement('li')
-    
+      const text = document.createElement('span')
+      text.classList.add = ('LeftSide--task')
 
-    const text = document.createElement('span')
-    text.classList.add = ('LeftSide--task')
+      const deleteBtn = document.createElement('button')
 
-    const deleteBtn = document.createElement('button')
-
-    const editBtn = document.createElement('button')
-
-    editBtn.textContent = '/'
-    deleteBtn.textContent = '🗑️'
+      const editBtn = document.createElement('button')
 
 
-    text.textContent = input.value.trim()
-    if (!input.value.trim()) return
 
-    listUL.appendChild(task)
-    task.appendChild(text)
-    task.appendChild(editBtn)
-    task.appendChild(deleteBtn)
-      
+      text.textContent = input.value.trim()
+      if (!input.value.trim()) return
 
-    input.value = ''
-    input.focus()
+      listUL.appendChild(task)
+      task.appendChild(text)
+      task.appendChild(editBtn)
+      task.appendChild(deleteBtn)
+
+
+      input.value = ''
+      input.focus()
 
       let tasks = getToLocalStorage('listUL') || []
-    tasks.push({
-      id: id,
-      text: valueInp,
-      done: false
-    })
-    saveToLocalStorage('listUL', tasks)
-    RenderTodofromLocalStorage()
+      tasks.push({
+        id: id,
+        text: valueInp,
+        done: false
+      })
+      saveToLocalStorage('listUL', tasks)
+      RenderTodofromLocalStorage()
     })
 
     const valueInp = input.value.trim()
@@ -177,11 +174,18 @@ document.addEventListener('click', (e)=>{
     const rightMenu = document.querySelector('[data-right-menu]')
     rightMenu.appendChild(menuAdder)
 
-const btnRemove = document.querySelector('[data-remove]')
-btnRemove.addEventListener('click', ()=>{
-menuAdder.remove()
-})
+    const btnRemove = document.querySelector('[data-remove]')
+    btnRemove.addEventListener('click', () => {
+      menuAdder.remove()
+    })
 
-}
-
+  }
 })
+  const btnDeleteAll = document.querySelector('[data-delete-all-btn]')
+
+  btnDeleteAll.addEventListener('click', () => {
+
+    localStorage.removeItem('listUL')
+
+    RenderTodofromLocalStorage()
+  })
