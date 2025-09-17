@@ -12,6 +12,8 @@
             border: transparent 1px dashed;
             padding: 10px;  
             transition: transform 0.3s ease;
+            margin: 3px;
+            
             
             &:hover{
                 border: wheat 1px dashed;
@@ -25,12 +27,53 @@
     border-bottom: 2px dashed black;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content:center;
     align-items: center;
 
-    .lefSide--inputReady,
-    .lefSide--task{
-        margin: 30px;
+    & .lefSide--task{
+        font-size: 24px;
     }
+}
+
+.Box-LeftSide{
+    flex: 1;
+}
+
+.lefSide--inputReady {
+  // прячем стандартный чекбокс
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 1rem;
+  margin: auto;
+  height: 1rem;
+  border: 2px solid #bababa; // рамка фиолетового цвета
+  border-radius: 6px;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.25s ease;
+
+  &:hover {
+    border-color: #f8f8f8;
+    box-shadow: 0 0 8px rgba(74, 74, 74, 0.6);
+    transform: scale(1.1);
+  }
+
+  &:checked {
+    background-color: #6c63ff;
+    border-color: #6c63ff;
+
+    &::after {
+      content: "✔";
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
 }
 

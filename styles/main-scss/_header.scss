@@ -9,6 +9,9 @@
     }
 }
 
+
+
+
 .header{
     background: linear-gradient(90deg, #1c1c1c, #3e3e3e, #212021) repeat repeat ;
     background-size: 200% 200%;
@@ -46,9 +49,10 @@
     align-items: center;
     justify-content: center;
     transition: border 0.2s, box-shadow 0.2s, transform 0.1s;
+    border: 1px transparent dashed;
 
     &:hover {
-        border: 1px dashed rgb(23, 23, 23);
+        border: 1px dashed #eae9ec;
         border-radius: 1rem;
         box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
@@ -58,7 +62,7 @@
     }
 
     &.btn--head-active {
-        border: 2px solid #eae9ec;
+
         border-radius: 1rem;
         box-shadow: 0 4px 16px rgba(162, 89, 217, 0.15);
         
@@ -68,23 +72,27 @@
         color: #c1c1c1;
         width:2rem;
         height: 2rem;
-        pointer-events: none;
+
     }
 }
 
 .header__navigation {
     position: relative;
 }
-
+.header__logo {
+    text-decoration: none;
+    color: #4eb2a3;
+    font-size: 3rem;
+    font-family:Arial, Helvetica, sans-serif;
+}
 .menu {
     position: absolute;
     top: 100%;
     left: 0;
     width: 10rem;
-    background: #747474;
+    background: #5aa6c4;
     border-radius: 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1),
-            0 1px 3px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.579);
     padding: 1rem 0.5rem;
     z-index: 10;
     opacity: 1;
@@ -92,11 +100,13 @@
     transition: opacity 0.2s, transform 0.2s;
     pointer-events: auto;
     display: block;
+    border: 2px rgb(255, 255, 255) dashed;
 }
 .menu li {
     margin: 1rem;
     text-align: center;
     a{
+        border: 1px transparent dashed;
         text-decoration: none;
         color: #282828;
         &:hover{

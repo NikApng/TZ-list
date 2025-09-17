@@ -1,0 +1,66 @@
+.accept__container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0); // изначально маленький для анимации
+  background-color: #f0f0f0; // замените на нужный цвет
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  opacity: 0; // изначально прозрачный
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  z-index: 1000;
+
+  &.active {
+    transform: translate(-50%, -50%) scale(1); // плавное увеличение до нормального размера
+    opacity: 1;
+  }
+
+  .accept-header__container {
+    margin-bottom: 20px;
+
+    h1 {
+      font-size: 1.5rem;
+      color: #333;
+    }
+  }
+
+  .accept-buttons__container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+
+    button {
+      padding: 10px 25px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+
+      &.accept-Remuve_btn {
+        background-color: #e0e0e0;
+        color: #333;
+
+        &:hover {
+          background-color: #d4d4d4;
+          transform: translateY(-2px);
+        }
+      }
+
+      &.accept-Accept_btn {
+        background-color: #4caf50;
+        color: #fff;
+
+        &:hover {
+          background-color: #45a047;
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+}
