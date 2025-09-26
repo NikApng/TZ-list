@@ -1,20 +1,10 @@
-function saveToLocalStorage(key, value) {
-  localStorage.setItem(key, JSON.stringify(value))
-}
 
-function getToLocalStorage(key) {
-  const data = localStorage.getItem(key)
-  return data ? JSON.parse(data) : null
-}
+import { saveToLocalStorage, getToLocalStorage } from './constructor.js';
+import { generateId } from './counterId.js';
 
-function generateId() {
-  return Date.now().toString(36) + Math.random().toString(36).substring(2, 9)
-  
-}
 
-const uniqueId = generateId()
 
-  
+
 
 
 function RenderTodofromLocalStorage() {
@@ -51,12 +41,13 @@ function RenderTodofromLocalStorage() {
 
     taskaEditBtn.textContent = '📝'
 
-    inputReady.checked = task.done
+
+
+
     if (task.done === true) {
       taskaText.style.color = 'gray'
       taskaText.style.textDecoration = 'line-through'
       taskaText.style.fontWeight = 'bold'
-
     } else {
       taskaText.style.color = 'white'
       taskaText.style.fontWeight = 'bold'
@@ -100,12 +91,22 @@ function RenderTodofromLocalStorage() {
 
 
   })
-
+countDoneTask() 
 }
 RenderTodofromLocalStorage()
 
 
+function countDoneTask() {
+  const tasks = getToLocalStorage('listUL') || []
+  const count = tasks.filter(task => task.done === true).length
+  const counetr = document.querySelector('[data-count]')
+  
+  if(tasks.done >= true){
+    counetr.textContent = count
+    
+  }
 
+}
 
 
 
@@ -168,7 +169,7 @@ document.addEventListener('click', (e) => {
 
       input.value = ''
       input.focus()
-      
+
       let tasks = getToLocalStorage('listUL') || []
       tasks.push({
         id: generateId(),
@@ -190,12 +191,12 @@ document.addEventListener('click', (e) => {
 
   }
 })
-  const btnDeleteAll = document.querySelector('[data-delete-all-btn]')
-  
-  btnDeleteAll.addEventListener('click', () => {
-    if(document.querySelector('.accept__container')) return
-      const acceptModal = document.createElement('div');
-    acceptModal.innerHTML = `
+const btnDeleteAll = document.querySelector('[data-delete-all-btn]')
+
+btnDeleteAll.addEventListener('click', () => {
+  if (document.querySelector('.accept__container')) return
+  const acceptModal = document.createElement('div');
+  acceptModal.innerHTML = `
     <div class="accept__container">
                         <div class="accept-header__container">
                             <span><h1>Вы точно хотите выполнить полную очистку своего списка дел?</h1></span>
@@ -208,26 +209,26 @@ document.addEventListener('click', (e) => {
     `
 
 
-    acceptModal.classList.add('active')
+  acceptModal.classList.add('active')
 
-    document.body.appendChild(acceptModal)
+  document.body.appendChild(acceptModal)
 
-    const modalContent = acceptModal.querySelector('.accept__container')
-    setTimeout(()=> modalContent.classList.add('active'),10)
+  const modalContent = acceptModal.querySelector('.accept__container')
+  setTimeout(() => modalContent.classList.add('active'), 10)
 
 
-    const btnDeleteAllTasks = acceptModal.querySelector('[data-delete-all-task-btn]')
-    btnDeleteAllTasks.addEventListener('click', ()=>{
+  const btnDeleteAllTasks = acceptModal.querySelector('[data-delete-all-task-btn]')
+  btnDeleteAllTasks.addEventListener('click', () => {
 
-      if(!modalContent) {
-        modalContent.classList.remove('active')
-      }
-      
-      acceptModal.remove()
-      localStorage.removeItem('listUL')
-      RenderTodofromLocalStorage()
-    })
-    const btnCancel = modalContent.querySelector('[data-delete-all-cancel]').addEventListener('click', ()=>{
-      acceptModal.remove()
-    })
+    if (!modalContent) {
+      modalContent.classList.remove('active')
+    }
+
+    acceptModal.remove()
+    localStorage.removeItem('listUL')
+    RenderTodofromLocalStorage()
   })
+  modalContent.querySelector('[data-delete-all-cancel]').addEventListener('click', () => {
+    acceptModal.remove()
+  })
+})

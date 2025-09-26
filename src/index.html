@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./index.css">
     <script src="../js/burger/burger-menu.js" defer type="module"></script>
-    <script src="../main-js/stogare.js" defer type="module"></script>
-    <script src="../main-js/addTodo-creater.js" defer type="module"></script>
+    <script src="/main-js/stogare.js" defer type="module"></script>
     <title>TZ | Задачи</title>
 </head>
 
@@ -32,7 +31,7 @@
             <h1 class="Logo__Header">TZ-LIST</h1>
         </a>
 
-        <button class="theme-toggle" aria-label="Сменить тему">Сменить тему</button>
+        <button class="theme-toggle" aria-label="Сменить тему" data-theme>Сменить тему</button>
     </header>
 
     <!-- main -->
@@ -46,9 +45,15 @@
 
                         <div class="main-info__bottom">
 
-                            <button class="btn-main__creater" data-create-btn style="color: rgb(249, 229, 5);">✚</button>
+                            <button class="btn-main__creater" data-create-btn
+                                style="color: rgb(247, 247, 247);">✚</button>
                             <button class="btn-main__deleter-all" data-delete-all-btn>удалить все задачи</button>
-
+                            <div class="counter__container"><span>
+                                    выделено:
+                                    <span data-count>0</span>
+                                    <button data-delete-count style="background: transparent; border: 1px dashed black;">🗑️</button>
+                                </span>
+                            </div>
                         </div>
 
                     </div>
@@ -62,7 +67,7 @@
 
             <!-- Правая часть -->
             <div class="main--content-right" data-right-menu>
-                    
+
             </div>
         </div>
     </main>
