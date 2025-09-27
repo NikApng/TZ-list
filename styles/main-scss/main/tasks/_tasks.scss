@@ -37,6 +37,12 @@
 
 .Box-LeftSide{
     flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+  
 }
 
 .lefSide--inputReady {
@@ -44,12 +50,16 @@
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   width: 1rem;
-  margin: auto;
+
   height: 1rem;
   border: 2px solid #bababa; // рамка фиолетового цвета
   border-radius: 6px;
-  background-color: transparent;
+  background-color: white;
   cursor: pointer;
   position: relative;
   transition: all 0.25s ease;
@@ -57,17 +67,19 @@
   &:hover {
     border-color: #f8f8f8;
     box-shadow: 0 0 8px rgba(74, 74, 74, 0.6);
-    transform: scale(1.1);
+    transform: scale(1);
   }
 
   &:checked {
-    background-color: #6c63ff;
-    border-color: #6c63ff;
+    background-color: #2e2d39;
+    border-color: #6c6b76;
 
     &::after {
       content: "✔";
+      width: auto;
+      height: auto;
       color: white;
-      font-size: 16px;
+      font-size: 12px;
       font-weight: bold;
       position: absolute;
       top: 50%;

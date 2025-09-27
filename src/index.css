@@ -210,9 +210,7 @@ body {
   }
 }
 .header {
-  background: linear-gradient(90deg, #1c1c1c, #3e3e3e, #212021) repeat repeat;
-  background-size: 200% 200%;
-  animation: gradient-move 10s linear infinite;
+  background: #888888;
   width: 100%;
   height: 10rem;
   display: flex;
@@ -230,7 +228,7 @@ body {
 }
 
 .theme-toggle {
-  background-color: azure;
+  background-color: rgb(253, 253, 253);
   border: none;
   border-radius: 1rem;
   margin: 1rem;
@@ -255,12 +253,15 @@ body {
 }
 .btn--head:active {
   transform: scale(0.95);
+  border: 1px transparent dashed;
 }
 .btn--head.btn--head-active {
+  border: 1px transparent dashed;
   border-radius: 1rem;
   box-shadow: 0 4px 16px rgba(162, 89, 217, 0.15);
 }
 .btn--head svg {
+  border: 1px transparent dashed;
   color: #c1c1c1;
   width: 2rem;
   height: 2rem;
@@ -300,6 +301,7 @@ body {
   text-align: center;
 }
 .menu li a {
+  padding: 1px;
   border: 1px transparent dashed;
   text-decoration: none;
   color: #282828;
@@ -313,93 +315,6 @@ body {
   opacity: 0;
   transform: translateY(-10px);
   pointer-events: none;
-}
-
-.main-info {
-  margin: 1rem 1rem;
-  background: linear-gradient(90deg, #1c1c1c, #3e3e3e, #212021) repeat repeat;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
-  background-size: 200% 200%;
-  animation: gradient-move 10s linear infinite;
-  width: 50vw;
-  height: 6rem;
-  border-radius: 1rem;
-  display: flex;
-  flex-direction: row;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-  padding: 10px;
-}
-.main-info .main-info__search {
-  background-color: rgb(139, 46, 221);
-  border: 1px dashed gray;
-  margin-right: 2rem;
-  border-radius: 1rem;
-  width: 100%;
-  outline: none;
-}
-.main-info .main-info__search::-moz-placeholder {
-  padding: 10px;
-  color: white;
-}
-.main-info .main-info__search::placeholder {
-  padding: 10px;
-  color: white;
-}
-.main-info .main-info__right {
-  margin-left: 20px;
-  align-self: center;
-}
-.main-info .main-info__bottom {
-  display: flex;
-  flex-wrap: wrap;
-}
-.main-info .main-info__bottom .inpit-placeholder-top {
-  position: relative;
-}
-.main-info .main-info__bottom .inpit-placeholder-top input {
-  background-color: #ffffff;
-  border: none;
-  border-radius: 10px;
-  margin-right: 20px;
-}
-.main-info .main-info__bottom .inpit-placeholder-top label {
-  position: absolute;
-  top: -10px;
-  left: 10px;
-  transform: translateY(-50%);
-  padding: 0 5px;
-  font-size: 12px;
-  color: gray;
-  transition: all 0.2s ease-out;
-}
-.main-info .main-info__bottom .inpit-placeholder-top input:not(:-moz-placeholder) + label {
-  top: -8px;
-  font-size: 12px;
-  color: rgb(133, 119, 119);
-  padding: 0 5px;
-}
-.main-info .main-info__bottom .inpit-placeholder-top input:focus + label, .main-info .main-info__bottom .inpit-placeholder-top input:not(:placeholder-shown) + label {
-  top: -8px;
-  font-size: 12px;
-  color: rgb(133, 119, 119);
-  padding: 0 5px;
-}
-.main-info .main-info__bottom button {
-  background-color: #000000;
-  color: white;
-  font-weight: 400;
-  text-align: center;
-  align-self: center;
-  border: none;
-  border-radius: 10px;
-}
-.main-info .main-info__bottom button::before {
-  content: "Добавить задачу";
-  font-size: 20px;
-  line-height: 1;
 }
 
 /* Контейнеры — ок */
@@ -451,32 +366,54 @@ body {
   flex-wrap: wrap;
   color: white;
 }
+.main--content-left .left__section-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+.main--content-left .left__section-header .counter__container {
+  color: #647a9c;
+  font-weight: bold;
+  background-color: wheat;
+  border-radius: 0 0 1rem 1rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin: 0;
+}
 .main--content-left .btn-main__creater {
-  background-color: #bbded6;
+  background-color: wheat;
   border: 1px transparent dashed;
-  border-radius: 5%;
+  border-radius: 1rem 1rem 0 0;
+  margin: 0;
+  padding: auto;
+  transform: scale(1);
+  transition: transform 0.3s ease, border-color 0.3s ease;
 }
 .main--content-left .btn-main__creater:hover {
-  border: 1px dashed #fbfbfe;
+  transform: scale(1);
+  border: 1px dashed #484881;
   box-shadow: 0 0 10px rgba(85, 85, 86, 0.4196078431), 0 0 20px rgba(95, 96, 96, 0.337254902);
 }
 .main--content-left .btn-main__deleter-all {
-  background-color: #bbded6;
-  border: 2px transparent dashed;
-  border-radius: 0 10px 10px 0;
+  background-color: wheat;
+  border: 1px dashed transparent;
+  border-radius: 1rem 1rem 0 0;
+  margin: auto;
+  transition: transform 0.3s ease, border-color 0.3s ease;
 }
 .main--content-left .btn-main__deleter-all:hover {
-  border: 2px solid #6868b3;
+  transform: scale(1);
+  border: 1px dashed #484881;
   box-shadow: 0 0 10px rgba(85, 85, 86, 0.4196078431), 0 0 20px rgba(95, 96, 96, 0.337254902);
 }
 
 .left__section-main--container {
   display: flex;
   flex-direction: column;
-  background: linear-gradient(90deg, #1c1c1c, #3e3e3e, #212021) repeat repeat;
-  background-size: 200% 200%;
-  animation: gradient-move 10s linear infinite;
-  justify-content: flex-start;
+  background: #b7b8b9;
   align-items: center;
   flex: 1;
   box-shadow: 0 0 20px rgb(70, 70, 70);
@@ -594,18 +531,26 @@ body {
 
 .Box-LeftSide {
   flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
 }
 
 .lefSide--inputReady {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   width: 1rem;
-  margin: auto;
   height: 1rem;
   border: 2px solid #bababa;
   border-radius: 6px;
-  background-color: transparent;
+  background-color: white;
   cursor: pointer;
   position: relative;
   transition: all 0.25s ease;
@@ -613,16 +558,18 @@ body {
 .lefSide--inputReady:hover {
   border-color: #f8f8f8;
   box-shadow: 0 0 8px rgba(74, 74, 74, 0.6);
-  transform: scale(1.1);
+  transform: scale(1);
 }
 .lefSide--inputReady:checked {
-  background-color: #6c63ff;
-  border-color: #6c63ff;
+  background-color: #2e2d39;
+  border-color: #6c6b76;
 }
 .lefSide--inputReady:checked::after {
   content: "✔";
+  width: auto;
+  height: auto;
   color: white;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: bold;
   position: absolute;
   top: 50%;
@@ -686,4 +633,23 @@ body {
 .accept__container .accept-buttons__container button.accept-Accept_btn:hover {
   background-color: #45a047;
   transform: translateY(-2px);
+}
+
+.btn-delete_count {
+  border: 1px dashed transparent;
+  border-radius: 1rem;
+  background: none;
+  justify-self: center;
+  align-self: center;
+  margin: 0;
+  padding: 1px;
+  transform: scale(1);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.btn-delete_count:hover {
+  transform: scale(1);
+  border: 1px dashed rgb(82, 92, 150);
+}
+.btn-delete_count:active {
+  transform: scale(0.95);
 }/*# sourceMappingURL=index.css.map */

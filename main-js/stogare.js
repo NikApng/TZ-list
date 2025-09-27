@@ -1,13 +1,12 @@
 
 import { saveToLocalStorage, getToLocalStorage } from './constructor.js';
 import { generateId } from './counterId.js';
-
-
-
+import {renderCoundDelet} from './renderTask.js'
 
 
 
 function RenderTodofromLocalStorage() {
+  
   const listUL = document.querySelector('[data-ul-list]')
   if (!listUL) return
   const id = generateId()
@@ -17,10 +16,12 @@ function RenderTodofromLocalStorage() {
   tasks.forEach((task) => {
     const taska = document.createElement('li')
     taska.classList.add('lefSide--LI')
+    taska.dataset.id = task.id
 
     const inputReady = document.createElement('input')
     inputReady.type = 'checkbox'
     inputReady.classList.add('lefSide--inputReady')
+    inputReady.checked = task.done
 
     const taskaText = document.createElement('span')
     taskaText.textContent = task.text
@@ -86,31 +87,35 @@ function RenderTodofromLocalStorage() {
         taskaText.style.fontWeight = 'bold'
         taskaText.style.textDecoration = 'none'
       }
+      countDoneTask() 
+      
     })
 
-
-
-  })
+renderCoundDelet()
 countDoneTask() 
+  })
 }
 RenderTodofromLocalStorage()
+// delete count btn blya---------------------------------------------
 
+
+
+//---------------------------------------------------------------------
 
 function countDoneTask() {
   const tasks = getToLocalStorage('listUL') || []
-  const count = tasks.filter(task => task.done === true).length
+  const count = tasks.filter(taskas => taskas.done).length
   const counetr = document.querySelector('[data-count]')
+  counetr.textContent = count
   
-  if(tasks.done >= true){
-    counetr.textContent = count
-    
-  }
-
 }
+
+
 
 
 
 document.addEventListener('click', (e) => {
+  
   if (e.target.closest('[data-create-btn]')) {
 
     const MenuIsopen = document.querySelector('.Menu-adder__container')
@@ -232,3 +237,5 @@ btnDeleteAll.addEventListener('click', () => {
     acceptModal.remove()
   })
 })
+
+export {RenderTodofromLocalStorage}

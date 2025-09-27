@@ -15,22 +15,50 @@
     flex-wrap: wrap;
     color: white;
 
+    & .left__section-header{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        
+        & .counter__container{
+            color: #647a9c;
+            font-weight: bold;
+            background-color: wheat;
+            border-radius: 0 0 1rem 1rem;
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            margin: 0;
+        }
+    }
+
     & .btn-main__creater{
-        background-color: #bbded6;
+        background-color: wheat;
         border: 1px transparent dashed;
-        border-radius: 5%;
+        border-radius: 1rem 1rem 0 0;  
+        margin: 0;
+        padding: auto;
+        transform: scale(1);               
+  transition: transform .3s ease,
+              border-color .3s ease;  
         &:hover{
-            border: 1px dashed #fbfbfe;
+            transform: scale(1);     
+            border: 1px dashed #484881;
             box-shadow: 0 0 10px #5555566b, 0 0 20px #5f606056;
         }
     }
     & .btn-main__deleter-all{
-        background-color: #bbded6;
-        border: 2px transparent dashed;
-        border-radius: 0 10px 10px 0;  
+        background-color: wheat;
+        border: 1px dashed transparent;
+        border-radius: 1rem 1rem 0 0;
+        margin: auto;
+        transition: transform .3s ease,
+              border-color .3s ease;  
         &:hover{
-            
-            border: 2px solid #6868b3;
+            transform: scale(1);  
+            border: 1px dashed #484881;
             box-shadow: 0 0 10px #5555566b, 0 0 20px #5f606056;
         }
     }
@@ -39,12 +67,7 @@
 .left__section-main--container {
     display: flex;
     flex-direction: column;
-
-    background: linear-gradient(90deg, #1c1c1c, #3e3e3e, #212021) repeat repeat;
-    background-size: 200% 200%;
-    animation: gradient-move 10s linear infinite;
-
-    justify-content: flex-start;
+    background: #b7b8b9;
     align-items: center;
     flex: 1;
     box-shadow: 0 0 20px rgb(70, 70, 70);

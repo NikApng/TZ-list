@@ -1,0 +1,21 @@
+.btn-delete_count {
+  border: 1px dashed transparent;
+  border-radius: 1rem;
+  background: none;
+  justify-self: center;
+  align-self: center;
+  margin: 0;
+  padding: 1px;
+  transform: scale(1);               
+  transition: transform .3s ease,
+              border-color .3s ease;  
+
+  &:hover {
+    transform: scale(1);            
+    border: 1px dashed rgb(82, 92, 150);
+  }
+
+  &:active {
+    transform: scale(0.95);           
+  }
+}
