@@ -239,3 +239,19 @@ btnDeleteAll.addEventListener('click', () => {
 })
 
 export {RenderTodofromLocalStorage}
+
+const color = "red";
+
+switch (color) {
+  case "red":
+    console.log("Стоп");
+    break;
+  case "yellow":
+    console.log("Жди");
+    break;
+  case "green":
+    console.log("Иди");
+    break;
+  default:
+    console.log("Неизвестный сигнал");
+}
