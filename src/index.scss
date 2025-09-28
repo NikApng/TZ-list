@@ -11,3 +11,31 @@
 @use '../styles/main-scss/main/tasks/counter/counter';
 
 
+body.dark-theme {
+  color: black;
+  background-color: rgb(38, 38, 38);
+  
+  & .left__section-main--container{
+    color: rgb(255, 255, 255);
+    background-color: rgb(38, 38, 38);
+    box-shadow: 0 0 20px black ;
+  }
+
+  & .header{
+     color: rgb(255, 255, 255);
+     background-color: rgb(56, 45, 67);
+
+     & .header__logo{
+         color: rgb(255, 255, 255);
+     }
+
+     & .menu{
+         background-color: rgb(48, 48, 48);
+
+         & .btn--header{
+            color: rgb(255, 255, 255);
+         }
+         
+     }
+  }
+}

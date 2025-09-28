@@ -652,4 +652,27 @@ body {
 }
 .btn-delete_count:active {
   transform: scale(0.95);
+}
+
+body.dark-theme {
+  color: black;
+  background-color: rgb(38, 38, 38);
+}
+body.dark-theme .left__section-main--container {
+  color: rgb(255, 255, 255);
+  background-color: rgb(38, 38, 38);
+  box-shadow: 0 0 20px black;
+}
+body.dark-theme .header {
+  color: rgb(255, 255, 255);
+  background-color: rgb(56, 45, 67);
+}
+body.dark-theme .header .header__logo {
+  color: rgb(255, 255, 255);
+}
+body.dark-theme .header .menu {
+  background-color: rgb(48, 48, 48);
+}
+body.dark-theme .header .menu .btn--header {
+  color: rgb(255, 255, 255);
 }/*# sourceMappingURL=index.css.map */

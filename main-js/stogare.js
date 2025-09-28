@@ -1,7 +1,10 @@
 
 import { saveToLocalStorage, getToLocalStorage } from './constructor.js';
 import { generateId } from './counterId.js';
-import {renderCoundDelet} from './renderTask.js'
+import {renderCoundDelet} from './renderTask.js';
+import {themeChanger} from './change-Theme.js';
+
+themeChanger()
 
 
 
@@ -70,7 +73,7 @@ function RenderTodofromLocalStorage() {
       tasks = tasks.filter(t => t.id !== task.id)
       saveToLocalStorage('listUL', tasks)
       RenderTodofromLocalStorage()
-
+      countDoneTask() 
     })
 
     inputReady.addEventListener('change', () => {
@@ -96,13 +99,10 @@ countDoneTask()
   })
 }
 RenderTodofromLocalStorage()
-// delete count btn blya---------------------------------------------
 
-
-
-//---------------------------------------------------------------------
 
 function countDoneTask() {
+  
   const tasks = getToLocalStorage('listUL') || []
   const count = tasks.filter(taskas => taskas.done).length
   const counetr = document.querySelector('[data-count]')
@@ -232,6 +232,7 @@ btnDeleteAll.addEventListener('click', () => {
     acceptModal.remove()
     localStorage.removeItem('listUL')
     RenderTodofromLocalStorage()
+    countDoneTask() 
   })
   modalContent.querySelector('[data-delete-all-cancel]').addEventListener('click', () => {
     acceptModal.remove()
@@ -240,18 +241,3 @@ btnDeleteAll.addEventListener('click', () => {
 
 export {RenderTodofromLocalStorage}
 
-const color = "red";
-
-switch (color) {
-  case "red":
-    console.log("Стоп");
-    break;
-  case "yellow":
-    console.log("Жди");
-    break;
-  case "green":
-    console.log("Иди");
-    break;
-  default:
-    console.log("Неизвестный сигнал");
-}
