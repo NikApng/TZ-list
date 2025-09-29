@@ -1,3 +1,4 @@
+
 .main--content-right {
     width: 100vw;
 }
@@ -24,6 +25,7 @@
         
         & .counter__container{
             color: #647a9c;
+            font-size: larger;
             font-weight: bold;
             background-color: wheat;
             border-radius: 0 0 1rem 1rem;
@@ -35,6 +37,7 @@
     }
 
     & .btn-main__creater{
+        font-size: larger;
         background-color: wheat;
         border: 1px transparent dashed;
         border-radius: 1rem 1rem 0 0;  
@@ -50,6 +53,7 @@
         }
     }
     & .btn-main__deleter-all{
+        font-size: larger;
         background-color: wheat;
         border: 1px dashed transparent;
         border-radius: 1rem 1rem 0 0;

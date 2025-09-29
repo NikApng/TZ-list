@@ -1,7 +1,7 @@
 @use '../styles/normalize' as *;
 @use '../styles/fonts' as *;
 @use '../styles/main-scss/header' as *;
-@use '../styles/main-scss/main/main-aside' as *;
+
 @use '../styles/main-scss/main/main' as *;
 @use '../styles/main-scss/main/main-LeftSection' as *;
 @use '../styles/main-scss/main/main-RightSection' as *;
@@ -9,33 +9,10 @@
 @use '../styles/main-scss/main/tasks/tasks';
 @use '../styles/main-scss/main/tasks/accept-modal';
 @use '../styles/main-scss/main/tasks/counter/counter';
+@use '../styles/settingsStyles/settings-page';
+@use '../styles/FAQ_page/faq';
 
-
-body.dark-theme {
-  color: black;
-  background-color: rgb(38, 38, 38);
-  
-  & .left__section-main--container{
-    color: rgb(255, 255, 255);
-    background-color: rgb(38, 38, 38);
-    box-shadow: 0 0 20px black ;
-  }
-
-  & .header{
-     color: rgb(255, 255, 255);
-     background-color: rgb(56, 45, 67);
-
-     & .header__logo{
-         color: rgb(255, 255, 255);
-     }
-
-     & .menu{
-         background-color: rgb(48, 48, 48);
-
-         & .btn--header{
-            color: rgb(255, 255, 255);
-         }
-         
-     }
-  }
+.render-page{
+    width: 100%;
+    height: fit-content;
 }

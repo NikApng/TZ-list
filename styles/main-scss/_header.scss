@@ -87,6 +87,7 @@
     font-family:Arial, Helvetica, sans-serif;
 }
 .menu {
+    
     position: absolute;
     top: 100%;
     left: 0;
@@ -102,20 +103,18 @@
     pointer-events: auto;
     display: block;
     border: 2px rgb(255, 255, 255) dashed;
+
+    & .btn--header{
+        
+        background: rgb(224, 224, 224);
+        border-radius: 1rem;
+        border: 1px dashed black;
+        color: rgb(28, 28, 28);
+      }
 }
 .menu li {
     margin: 1rem;
     text-align: center;
-    a{  
-        padding: 1px;
-        border: 1px transparent dashed;
-        text-decoration: none;
-        color: #282828;
-        &:hover{
-            border: 1px black dashed;
-            border-radius: 1rem;
-        }
-    }
 }
 
 .menu.hidden {

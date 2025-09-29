@@ -5,13 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="../styles/main-scss-Dark/main_dark.css">
     <script src="../js/burger/burger-menu.js" defer type="module"></script>
     <script src="/main-js/stogare.js" defer type="module"></script>
-    
+
+    <!-- LOADER PAGE -->
+    <script src="../js/load-page/load.js" defer type="module"></script>
+    <!-- LOADER PAGE -->
+
     <title>TZ | Задачи</title>
 </head>
 
-<body class="">
+<body class="light-Theme">
     <header class="header">
         <nav class="header__navigation btn--head">
             <button class="btn--head btn--head-active" type="button">
@@ -22,9 +27,9 @@
                 </svg>
             </button>
             <ul class="menu hidden" title="menu">
-                <li><a href="#" class="btn--header">Главное меню</a></li>
-                <li><a href="#" class="btn--header">Настройки</a></li>
-                <li><a href="#" class="btn--header">Обратная связь</a></li>
+                <li><button href="#" class="btn--header" data-action="main-menu">Список дел</button></li>
+                <li><button href="#" class="btn--header" data-action="settings">Настройки</button></li>
+                <li><button href="#" class="btn--header" data-action="FAQ">Обратная связь</button></li>
             </ul>
         </nav>
 
@@ -32,43 +37,47 @@
             <h1 class="Logo__Header">TZ-LIST</h1>
         </a>
 
-        <button class="theme-toggle" aria-label="Сменить тему" data-theme>Сменить тему</button>
+        <button class="theme-toggle" aria-label="Сменить тему" data-theme></button>
     </header>
 
-    <!-- main -->
-    <main class="main--content">
-        <!-- Колонка с задачами -->
-        <div class="main--content-main">
-            <section class="main--content-left">
-                <div class="left__section-main--container">
-                    <div class="left__section-header">
-                        <h2>Задачи</h2>
 
-                        <div class="main-info__bottom">
+    <div class="render-page" data-render-pages>
 
-                            <button class="btn-main__creater" data-create-btn
-                                style="color: rgb(247, 247, 247);">✚</button>
-                            <button class="btn-main__deleter-all" data-delete-all-btn >удалить задачи</button>
-                            <div class="counter__container">
-                                <span>выделено:<span data-count>0</span><button data-delete-count class="btn-delete_count">🗑️</button></span>
+       <div class="main--content-main">
+                <section class="main--content-left">
+                    <div class="left__section-main--container">
+                        <div class="left__section-header">
+                            <h2>Задачи</h2>
+
+                            <div class="main-info__bottom">
+
+                                <button class="btn-main__creater" data-create-btn
+                                    style="color: rgb(247, 247, 247);">✚</button>
+                                <button class="btn-main__deleter-all" data-delete-all-btn>удалить задачи</button>
+                                <div class="counter__container">
+                                    <span>выделено:<span data-count>0</span><button data-delete-count
+                                            class="btn-delete_count">🗑️</button></span>
+                                </div>
                             </div>
+
                         </div>
+                        <div class="left__section-middle">
+                            <ul class="task-list" id="taskList" aria-live="polite" data-ul-list>
 
+                            </ul>
+                        </div>
                     </div>
-                    <div class="left__section-middle">
-                        <ul class="task-list" id="taskList" aria-live="polite" data-ul-list>
+                </section>
 
-                        </ul>
-                    </div>
+                <!-- Правая часть -->
+                <div class="main--content-right" data-right-menu>
+
                 </div>
-            </section>
-
-            <!-- Правая часть -->
-            <div class="main--content-right" data-right-menu>
-
             </div>
-        </div>
-    </main>
+        </main>
+
+    </div>
+
 </body>
 
 </html>

@@ -100,6 +100,7 @@ countDoneTask()
 }
 RenderTodofromLocalStorage()
 
+export {RenderTodofromLocalStorage}
 
 function countDoneTask() {
   
@@ -239,5 +240,4 @@ btnDeleteAll.addEventListener('click', () => {
   })
 })
 
-export {RenderTodofromLocalStorage}
 
