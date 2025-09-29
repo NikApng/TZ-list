@@ -67,12 +67,18 @@ const pages = {
 
         </div>`},
     'FAQ': () => {
-        return `<div class"container-faq-page">
+        return `       <div class="container-faq-page">
             <h1>FAQ</h1>
 
             <p>Разработчик данного списка дел сильно старается по этому <br>
                 не разочаровывайтесь в его спосоностях все будет исправлено
             </p>
+            <form action="/submit-form" method="POST">
+    <input type="email" name="email" placeholder="Ваш email" required>
+    <input type="text" name="message" placeholder="Ваше сообщение" required>
+    <input type="number" name="phone" placeholder="Ваш телефон">
+    <button type="submit">Отправить</button>
+</form>
         </div>`}
 
 }
