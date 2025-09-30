@@ -27,9 +27,11 @@
                 </svg>
             </button>
             <ul class="menu hidden" title="menu">
-                <li><button href="#" class="btn--header" data-action="main-menu">Список дел</button></li>
-                <li><button href="#" class="btn--header" data-action="settings">Настройки</button></li>
-                <li><button href="#" class="btn--header" data-action="FAQ">Обратная связь</button></li>
+
+                <a href="#main-menu" data-action="#main-menu">Главное меню</a>
+                <a href="#settings" data-action="#settings">Настройки</a>
+                <a href="#FAQ" data-action="#FAQ">FAQ</a>
+
             </ul>
         </nav>
 
@@ -37,14 +39,29 @@
             <h1 class="Logo__Header">TZ-LIST</h1>
         </a>
 
-        <button class="theme-toggle" aria-label="Сменить тему" data-theme></button>
+        <div>
+            <div class="dropdown">
+                <input type="text" placeholder="Выберите язык" readonly>
+                <ul class="dropdown-list " >
+                    <li data-value="ru">Русский</li>
+                    <li data-value="en">English</li>
+                    <li data-value="es">Español</li>
+                    <li data-value="de">Deutsch</li>
+                    <li data-value="fr">Français</li>
+                </ul>
+            </div>
+
+            <button class="btn__add-friends" data-add-friend></button>
+            <button class="theme-toggle" aria-label="Сменить тему" data-theme></button>
+        </div>
+
     </header>
-<main>
+    <main>
 
-    <div class="render-page" data-render-pages>
+        <div class="render-page" data-render-pages>
 
 
-        <div class="main--content-main">
+            <div class="main--content-main">
                 <section class="main--content-left">
                     <div class="left__section-main--container">
                         <div class="left__section-header">
@@ -75,10 +92,10 @@
 
                 </div>
             </div>
-        </main>
+    </main>
 
     </div>
-</main>
+    </main>
 </body>
 
 </html>

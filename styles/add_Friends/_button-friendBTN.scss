@@ -1,0 +1,159 @@
+body {
+    &.dark-theme {
+        .btn__add-friends {
+            background: transparent;
+            border: none;
+            transition: transform 0.2s ease;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+
+            &::after {
+                font-size: 60px;
+                content: '🙋🏿‍♂️';
+                display: block;
+            }
+        }
+
+        .modal__friends-container {
+            color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.296);
+            z-index: 10000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0; // изначально прозрачная
+            transition: opacity 1s ease;
+
+            &.show {
+                opacity: 1;
+
+                .in--modal-container {
+                    transform: scale(1);
+                }
+            }
+
+            .in--modal-container {
+                background-color: #464646;
+                padding: 20px;
+                border-radius: 8px;
+                transform: scale(0.5);
+                transition: transform 0.2s ease;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+
+                width: 50vh;
+                height: 70vh;
+
+                & .friends__adder-container {
+                    display: flex;
+                    gap: 1rem;
+
+                    & a {
+                        color: #fff;
+                        text-decoration: none;
+                        border-bottom: 2px dashed transparent;
+                        transition: transform 0.4s ease;
+
+
+                        &:hover {
+                            border-bottom: 2px dashed rgb(206, 206, 206);
+                        }
+                    }
+                    
+                }
+                & .table__friends_user-container{
+                        flex: 1;
+                        display: flex;
+                        flex-direction: column;
+                        width: 100%;
+                        justify-content: start;
+                        align-items: center;
+
+                       & .list__user-li{
+                        display: flex;
+                        gap: 20px;
+                        flex-direction: row;
+                       }
+                            
+                        
+                    }
+            }
+        }
+    }
+
+    // обычная тема
+    .btn__add-friends {
+        background: transparent;
+        border: none;
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        &::after {
+            font-size: 60px;
+            content: '🙋‍♂️';
+            display: block;
+        }
+    }
+
+    .modal__friends-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.296);
+        z-index: 10000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0; // изначально прозрачная
+        transition: opacity 1s ease;
+
+        &.show {
+            opacity: 1;
+
+            .in--modal-container {
+                transform: scale(1);
+            }
+        }
+
+        .in--modal-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            transform: scale(0.5);
+            transition: transform 0.3s ease;
+            width: 50vh;
+            height: 70vh;
+
+            & .friends__adder-container {
+                display: flex;
+                gap: 1rem;
+
+                & a {
+                    color: #3a3a3a;
+                    text-decoration: none;
+                    transition: transform 0.4s ease;
+                    border-bottom: 1px dashed transparent;
+
+                    &:hover {
+                        border-bottom: 1px dashed black;
+                        transform: scale(1.05);
+                    }
+                }
+            }
+        }
+    }
+}

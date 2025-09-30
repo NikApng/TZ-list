@@ -10,6 +10,7 @@ const savedTheTheme = getToLocalStorage('theme')
 
 if(savedTheTheme === 'dark'){
         body.classList.add('dark-theme')
+
 }
 
 

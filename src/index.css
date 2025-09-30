@@ -497,6 +497,59 @@ body {
   border: 1px dashed black;
 }
 
+body.dark-theme .Menu-adder__container {
+  background-color: #4b4b4b;
+  width: auto;
+  height: auto;
+  border: 1px dashed #3f3f5a;
+  border-radius: 1rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.839);
+}
+body.dark-theme .Menu-adder__container .Menu-adder__header {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 10%;
+  justify-content: center;
+}
+body.dark-theme .Menu-adder__container .Menu-adder__header .Menu-exit__menu--btn {
+  background: none;
+  border: 1px solid transparent;
+  height: 10%;
+  color: #d8d8d8;
+  text-align: center;
+}
+body.dark-theme .Menu-adder__container .Menu-adder__header .Menu-exit__menu--btn:hover {
+  border: 1px dashed #969696;
+  height: 10%;
+  border-radius: 1rem;
+}
+body.dark-theme .Menu-adder__container .Menu-text__header {
+  color: #cfcfcf;
+  text-align: center;
+  flex: 1;
+  font-size: medium;
+}
+body.dark-theme .Menu-adder__container .Menu-bottom__container .Menu-input {
+  border: none;
+  background-color: rgba(219, 219, 219, 0.8470588235);
+  border-radius: 1rem 0 0 1rem;
+  margin: 0;
+}
+body.dark-theme .Menu-adder__container .Menu-bottom__container .Menu-add__task--btn {
+  background-color: rgba(207, 207, 207, 0.9098039216);
+  border: none;
+  border-radius: 10%;
+  margin: 0;
+  border: 1px solid transparent;
+}
+body.dark-theme .Menu-adder__container .Menu-bottom__container .Menu-add__task--btn:hover {
+  border: 1px dashed black;
+}
+
 .task-list {
   width: 100%;
   margin: 0;
@@ -525,7 +578,7 @@ body {
   align-items: center;
 }
 .lefSide--LI .lefSide--task {
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .Box-LeftSide {
@@ -574,6 +627,19 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+body.dark-theme .lefSide--LI {
+  border-bottom: 2px dashed rgb(220, 220, 220);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+body.dark-theme .lefSide--LI .lefSide--task {
+  font-size: 20px;
 }
 
 .accept__container {
@@ -690,6 +756,172 @@ body.dark-theme .container-faq-page {
   font-weight: bold;
   font-size: large;
   text-align: center;
+}
+
+body.dark-theme .btn__add-friends {
+  background: transparent;
+  border: none;
+  transition: transform 0.2s ease;
+}
+body.dark-theme .btn__add-friends:hover {
+  transform: scale(1.1);
+}
+body.dark-theme .btn__add-friends::after {
+  font-size: 60px;
+  content: "🙋🏿‍♂️";
+  display: block;
+}
+body.dark-theme .modal__friends-container {
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.296);
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+body.dark-theme .modal__friends-container.show {
+  opacity: 1;
+}
+body.dark-theme .modal__friends-container.show .in--modal-container {
+  transform: scale(1);
+}
+body.dark-theme .modal__friends-container .in--modal-container {
+  background-color: #464646;
+  padding: 20px;
+  border-radius: 8px;
+  transform: scale(0.5);
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 50vh;
+  height: 70vh;
+}
+body.dark-theme .modal__friends-container .in--modal-container .friends__adder-container {
+  display: flex;
+  gap: 1rem;
+}
+body.dark-theme .modal__friends-container .in--modal-container .friends__adder-container a {
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 2px dashed transparent;
+  transition: transform 0.4s ease;
+}
+body.dark-theme .modal__friends-container .in--modal-container .friends__adder-container a:hover {
+  border-bottom: 2px dashed rgb(206, 206, 206);
+}
+body.dark-theme .modal__friends-container .in--modal-container .table__friends_user-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: start;
+  align-items: center;
+}
+body.dark-theme .modal__friends-container .in--modal-container .table__friends_user-container .list__user-li {
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+}
+body .btn__add-friends {
+  background: transparent;
+  border: none;
+  transition: transform 0.3s ease;
+}
+body .btn__add-friends:hover {
+  transform: scale(1.1);
+}
+body .btn__add-friends::after {
+  font-size: 60px;
+  content: "🙋‍♂️";
+  display: block;
+}
+body .modal__friends-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.296);
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+body .modal__friends-container.show {
+  opacity: 1;
+}
+body .modal__friends-container.show .in--modal-container {
+  transform: scale(1);
+}
+body .modal__friends-container .in--modal-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  transform: scale(0.5);
+  transition: transform 0.3s ease;
+  width: 50vh;
+  height: 70vh;
+}
+body .modal__friends-container .in--modal-container .friends__adder-container {
+  display: flex;
+  gap: 1rem;
+}
+body .modal__friends-container .in--modal-container .friends__adder-container a {
+  color: #3a3a3a;
+  text-decoration: none;
+  transition: transform 0.4s ease;
+  border-bottom: 1px dashed transparent;
+}
+body .modal__friends-container .in--modal-container .friends__adder-container a:hover {
+  border-bottom: 1px dashed black;
+  transform: scale(1.05);
+}
+
+.dropdown {
+  position: relative;
+  width: 200px;
+}
+
+.dropdown input {
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-list {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.dropdown-list li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-list li:hover {
+  background: #f0f0f0;
+}
+
+.dropdown.open .dropdown-list {
+  display: block;
 }
 
 .render-page {

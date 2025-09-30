@@ -1,12 +1,13 @@
-import {RenderTodofromLocalStorage} from '../../main-js/stogare.js';
-const actions = document.querySelectorAll('button[data-action]')
+import { RenderTodofromLocalStorage, deleteAllButton } from '../../main-js/stogare.js';
+
+const actions = document.querySelectorAll('a[data-action]')
 
 const loadViewPort = document.querySelector('[data-render-pages]')
 
 const pages = {
     'main-menu': () => {
-        
-        return  `<div class="main--content-main">
+
+        return `<div class="main--content-main">
                 <section class="main--content-left">
                     <div class="left__section-main--container">
                         <div class="left__section-header">
@@ -37,8 +38,8 @@ const pages = {
 
                 </div>
             </div>
-        </main> ` 
-    
+        </main> `
+
     },
     'settings': () => {
         return `<div class="settings__menu-main-container">
@@ -82,23 +83,21 @@ const pages = {
         </div>`}
 
 }
+function renderPage() {
 
-actions.forEach(btn => {
-    
-    btn.addEventListener('click', (e) => {
-        loadViewPort.innerHTML = ''
-        const action = e.target.dataset.action
+    loadViewPort.innerHTML = ''
+    const hash = window.location.hash.slice(1) || 'main-menu'
 
-        if (pages[action]) {
-            loadViewPort.innerHTML = pages[action]()
+    if (pages[hash]) {
+        loadViewPort.innerHTML = pages[hash]()
 
-            if(action === 'main-menu'){
+        if (hash === 'main-menu') {
+           
             RenderTodofromLocalStorage()
-        }
-            
-        }
-        
-        
 
-    })
-})
+        }
+
+    }
+}
+window.addEventListener('hashchange', renderPage)
+renderPage()
