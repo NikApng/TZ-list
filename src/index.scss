@@ -13,6 +13,11 @@
 @use '../styles/FAQ_page/faq';
 @use '../styles/add_Friends/button-friendBTN';
 @use '../styles/language/lang';
+@use '../js/loaderInPage/styles/loader' as*;
+
+
+
+
 
 .render-page{
     width: 100%;

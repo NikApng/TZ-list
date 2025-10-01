@@ -1,14 +1,23 @@
+
 import { generateId } from '../../main-js/counterId.js';
+import { targetButtons } from '../loaderInPage/spin-loader.js';
 
 
 function openModalFriends() {
     const openModalFriendsBtn = document.querySelector('[data-add-friend]')
 
     openModalFriendsBtn.addEventListener('click', (e) => {
-        const modalContainer = document.createElement('div')
+        targetButtons()
+        setTimeout(() => {
+            
+            const modalContainer = document.createElement('div')
 
-        modalContainer.classList.add('modal__friends-container')
-        modalContainer.innerHTML = `
+            modalContainer.classList.add('modal__friends-container')
+            
+            const loader = document.querySelector('.loader-container')
+                loader.remove()
+
+            modalContainer.innerHTML = `
             <div class="in--modal-container">
                       <h1>Друзья:</h1>
 
@@ -47,24 +56,35 @@ function openModalFriends() {
             </div>
 
             </div>
-    `
-        document.body.appendChild(modalContainer)
+            `
+            document.body.appendChild(modalContainer)
 
-        setTimeout(() => {
-            modalContainer.classList.add('show')
-        }, 10)
+            setTimeout(() => {
+                modalContainer.classList.add('show')
+            }, 10)
 
-        modalContainer.addEventListener('click', (el) => {
-            if (el.target === modalContainer) {
-                modalContainer.remove()
-            }
-        })
+            modalContainer.addEventListener('click', (el) => {
+                if (el.target === modalContainer) {
+                    modalContainer.remove()
+                }
+            })
 
+        }, 1000)
     })
+
 
 
 
 }
 
-
 export { openModalFriends }
+
+
+
+
+
+
+function name() {
+
+
+}

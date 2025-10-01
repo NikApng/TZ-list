@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./index.css">
+
     <link rel="stylesheet" href="../styles/main-scss-Dark/main_dark.css">
+    <link href="/src/index.css" rel="stylesheet">
+
     <script src="../js/burger/burger-menu.js" defer type="module"></script>
     <script src="/main-js/stogare.js" defer type="module"></script>
 
@@ -16,9 +18,11 @@
     <title>TZ | Задачи</title>
 </head>
 
-<body class="light-Theme">
+ <body class="light-Theme">
+
     <header class="header">
-        <nav class="header__navigation btn--head">
+
+        <nav class="header__navigation btn--head ">
             <button class="btn--head btn--head-active" type="button">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                     <rect y="4" width="24" height="2" rx="1" fill="currentColor" />
@@ -41,13 +45,13 @@
 
         <div>
             <div class="dropdown">
-                <input type="text" placeholder="Выберите язык" readonly>
+                <input type="text" placeholder="" readonly>
                 <ul class="dropdown-list " >
-                    <li data-value="ru">Русский</li>
-                    <li data-value="en">English</li>
-                    <li data-value="es">Español</li>
-                    <li data-value="de">Deutsch</li>
-                    <li data-value="fr">Français</li>
+                    <li data-value="ru">Ру</li>
+                    <li data-value="en">En</li>
+                    <li data-value="es">Esp</li>
+                    <li data-value="de">Deu</li>
+                    <li data-value="fr">Fr</li>
                 </ul>
             </div>
 
@@ -89,7 +93,7 @@
 
                 <!-- Правая часть -->
                 <div class="main--content-right" data-right-menu>
-
+                    
                 </div>
             </div>
     </main>

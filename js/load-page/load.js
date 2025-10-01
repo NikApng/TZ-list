@@ -22,6 +22,7 @@ const pages = {
                                     <span>выделено:<span data-count>0</span><button data-delete-count
                                             class="btn-delete_count">🗑️</button></span>
                                 </div>
+                                
                             </div>
 
                         </div>
